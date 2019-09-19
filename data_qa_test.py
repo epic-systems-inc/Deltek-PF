@@ -33,7 +33,7 @@ password = creds['deltek_pass']
 cnxn = pyodbc.connect('DRIVER={SQL Server Native Client 11.0};SERVER='+server+';DATABASE='+database+';UID='+username+';PWD='+ password)
 cursor = cnxn.cursor()
 
-with open('pf_upload_billings.sql') as sql:
+with open('pf_project_tracking.sql') as sql:
     query = sql.read()
 
 wbs = []
