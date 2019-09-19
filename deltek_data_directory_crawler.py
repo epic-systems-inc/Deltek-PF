@@ -36,9 +36,10 @@ with open('DeltekTables.csv', 'r') as tables:
     deltek_tables['table'] = []
 
     for row in read_tables:
-        # if int(row[0]) >= 1000:
-        deltek_tables['row_count'].append(int(row[0]))
-        deltek_tables['table'].append(row[2].strip())
+        # Only interested in definitions for non-zero row count tables
+        if int(row[2]) > 0:
+            deltek_tables['row_count'].append(int(row[2]))
+            deltek_tables['table'].append(row[1].strip())
 
 
 options = webdriver.ChromeOptions()
